@@ -1,0 +1,13 @@
+type Campaign @table @export {
+	id: ID @primaryKey
+	name: String
+	enabled: Boolean
+	headline: String
+	messageTemplate: String
+	targetPersona: String
+	minVisitsLast30Days: Int
+	requiresLapsedDays: Int
+	timeWindow: String
+	offer: String
+	notes: String
+}

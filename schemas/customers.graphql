@@ -1,0 +1,11 @@
+type Customer @table @export {
+	id: ID @primaryKey
+	personaKey: String @indexed
+	name: String
+	signupDate: String
+	lastOrderAt: String
+	lastPromoAt: String
+	totalOrders: Int
+	totalSpend: Float
+	notes: String
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>nearstore-agent — Denver McDonald's simulator</title>
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+		/>
+		<link rel="stylesheet" href="simulator.css" />
+	</head>
+	<body>
+		<header>
+			<div class="brand">
+				<span class="mark">🍟</span>
+				<div>
+					<h1>nearstore-agent</h1>
+					<p>
+						Pick a customer, click the map within 500ft of a
+						McDonald's, and Claude Haiku decides the promo.
+					</p>
+				</div>
+			</div>
+		</header>
+
+		<main>
+			<div id="map"></div>
+			<aside id="panel">
+				<section class="panel-section">
+					<label for="persona">Customer</label>
+					<select id="persona"></select>
+					<div id="persona-summary" class="muted"></div>
+				</section>
+				<section class="panel-section instructions">
+					<strong>Click anywhere on the map</strong> to simulate
+					dropping into a location. You must be within 500 ft
+					(geofenced around each store) for the agent to fire.
+				</section>
+				<section class="panel-section" id="result">
+					<div class="muted">No request yet.</div>
+				</section>
+			</aside>
+		</main>
+
+		<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+		<script type="module" src="simulator.js"></script>
+	</body>
+</html>

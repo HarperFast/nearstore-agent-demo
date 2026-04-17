@@ -1,0 +1,92 @@
+[
+	{
+		"id": "cust-001",
+		"personaKey": "coffee-regular",
+		"name": "Marcus Chen",
+		"signupDate": "2024-08-12",
+		"notes": "Weekday commuter. Orders coffee + Egg McMuffin at ~7:15am from the same store, five days a week. Never orders on weekends. Never ordered after 10am.",
+		"orderPattern": {
+			"homeStoreId": "store-003",
+			"daysBack": 90,
+			"weekdays": [1, 2, 3, 4, 5],
+			"timeLocal": "07:15",
+			"jitterMinutes": 10,
+			"skipProbability": 0.15,
+			"items": [
+				{ "name": "Premium Roast Coffee (M)", "price": 2.19 },
+				{ "name": "Egg McMuffin", "price": 4.99 }
+			]
+		}
+	},
+	{
+		"id": "cust-002",
+		"personaKey": "family-weekend",
+		"name": "Elena Rodriguez (family)",
+		"signupDate": "2023-11-03",
+		"notes": "Family customer. Orders Saturday or Sunday evenings, typically 5–7pm. Four value meals plus drinks for kids. Never orders weekday mornings.",
+		"orderPattern": {
+			"homeStoreId": "store-015",
+			"daysBack": 90,
+			"weekdays": [0, 6],
+			"timeLocal": "18:00",
+			"jitterMinutes": 45,
+			"skipProbability": 0.25,
+			"items": [
+				{ "name": "Quarter Pounder Meal (L)", "price": 12.49 },
+				{ "name": "Big Mac Meal (L)", "price": 11.99 },
+				{ "name": "Happy Meal - Chicken McNuggets", "price": 6.19 },
+				{ "name": "Happy Meal - Cheeseburger", "price": 5.99 }
+			]
+		}
+	},
+	{
+		"id": "cust-003",
+		"personaKey": "late-night",
+		"name": "Jordan K.",
+		"signupDate": "2024-12-01",
+		"notes": "Late-night customer. All orders between 22:00 and 02:00. Favorites: Oreo McFlurry, Large Fries, Double Quarter Pounder. Often orders 2–3 days a week, erratic.",
+		"orderPattern": {
+			"homeStoreId": "store-002",
+			"daysBack": 90,
+			"weekdays": [1, 2, 3, 4, 5, 6, 0],
+			"timeLocal": "23:40",
+			"jitterMinutes": 120,
+			"skipProbability": 0.7,
+			"items": [
+				{ "name": "Double Quarter Pounder", "price": 7.89 },
+				{ "name": "Large Fries", "price": 4.19 },
+				{ "name": "Oreo McFlurry", "price": 4.89 }
+			]
+		}
+	},
+	{
+		"id": "cust-004",
+		"personaKey": "lapsed-heavy",
+		"name": "Sam Thornton",
+		"signupDate": "2022-05-10",
+		"notes": "Was a heavy user — 25–30+ orders per month through 2025-Q3, then stopped. No orders in 180+ days. Previously ordered breakfast and lunch mid-week, avg $11 per order.",
+		"orderPattern": {
+			"homeStoreId": "store-012",
+			"historicalOnly": true,
+			"historicalOrders": [
+				{ "daysAgo": 183, "time": "08:12", "items": [{ "name": "Sausage McMuffin Meal", "price": 7.29 }] },
+				{ "daysAgo": 185, "time": "12:40", "items": [{ "name": "Big Mac Meal (M)", "price": 10.49 }, { "name": "Apple Pie", "price": 1.89 }] },
+				{ "daysAgo": 187, "time": "08:05", "items": [{ "name": "Bacon Egg & Cheese Biscuit Meal", "price": 7.99 }] },
+				{ "daysAgo": 190, "time": "13:10", "items": [{ "name": "10pc McNuggets Meal (M)", "price": 10.19 }] },
+				{ "daysAgo": 194, "time": "08:30", "items": [{ "name": "Hotcakes Meal", "price": 7.49 }] }
+			]
+		}
+	},
+	{
+		"id": "cust-005",
+		"personaKey": "newcomer",
+		"name": "Alex R.",
+		"signupDate": "2026-04-15",
+		"notes": "Brand new — signed up 2 days ago with no orders yet.",
+		"orderPattern": {
+			"homeStoreId": null,
+			"historicalOnly": true,
+			"historicalOrders": []
+		}
+	}
+]

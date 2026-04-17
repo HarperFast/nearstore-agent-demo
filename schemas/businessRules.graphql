@@ -1,0 +1,7 @@
+type BusinessRule @table @export {
+	key: String @primaryKey
+	enabled: Boolean
+	description: String
+	params: Any
+	kind: String @indexed
+}

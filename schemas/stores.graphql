@@ -1,0 +1,10 @@
+type Store @table @export {
+	id: ID @primaryKey
+	name: String
+	address: String
+	city: String
+	state: String
+	latitude: Float
+	longitude: Float
+	h3Cell: String @indexed
+}

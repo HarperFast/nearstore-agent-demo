@@ -1,0 +1,227 @@
+[
+	{
+		"id": "store-001",
+		"name": "McDonald's - 16th St Mall",
+		"address": "1550 Court Pl",
+		"city": "Denver",
+		"state": "CO",
+		"latitude": 39.7435,
+		"longitude": -104.9907
+	},
+	{
+		"id": "store-002",
+		"name": "McDonald's - Colfax & Downing",
+		"address": "755 E Colfax Ave",
+		"city": "Denver",
+		"state": "CO",
+		"latitude": 39.7399,
+		"longitude": -104.9782
+	},
+	{
+		"id": "store-003",
+		"name": "McDonald's - E Colfax (City Park)",
+		"address": "3535 E Colfax Ave",
+		"city": "Denver",
+		"state": "CO",
+		"latitude": 39.7400,
+		"longitude": -104.9467
+	},
+	{
+		"id": "store-004",
+		"name": "McDonald's - Cherry Creek",
+		"address": "3325 E 1st Ave",
+		"city": "Denver",
+		"state": "CO",
+		"latitude": 39.7195,
+		"longitude": -104.9537
+	},
+	{
+		"id": "store-005",
+		"name": "McDonald's - RiNo / Brighton Blvd",
+		"address": "3585 Brighton Blvd",
+		"city": "Denver",
+		"state": "CO",
+		"latitude": 39.7686,
+		"longitude": -104.9788
+	},
+	{
+		"id": "store-006",
+		"name": "McDonald's - Highlands / Pecos",
+		"address": "3260 Pecos St",
+		"city": "Denver",
+		"state": "CO",
+		"latitude": 39.7636,
+		"longitude": -105.0097
+	},
+	{
+		"id": "store-007",
+		"name": "McDonald's - Lakewood / Colfax",
+		"address": "7455 W Colfax Ave",
+		"city": "Lakewood",
+		"state": "CO",
+		"latitude": 39.7402,
+		"longitude": -105.0812
+	},
+	{
+		"id": "store-008",
+		"name": "McDonald's - Lakewood / Wadsworth",
+		"address": "445 S Wadsworth Blvd",
+		"city": "Lakewood",
+		"state": "CO",
+		"latitude": 39.7099,
+		"longitude": -105.0813
+	},
+	{
+		"id": "store-009",
+		"name": "McDonald's - Wheat Ridge",
+		"address": "10403 W 44th Ave",
+		"city": "Wheat Ridge",
+		"state": "CO",
+		"latitude": 39.7788,
+		"longitude": -105.1296
+	},
+	{
+		"id": "store-010",
+		"name": "McDonald's - Arvada / Wadsworth",
+		"address": "7878 Wadsworth Blvd",
+		"city": "Arvada",
+		"state": "CO",
+		"latitude": 39.8386,
+		"longitude": -105.0810
+	},
+	{
+		"id": "store-011",
+		"name": "McDonald's - Westminster / Sheridan",
+		"address": "7345 Sheridan Blvd",
+		"city": "Westminster",
+		"state": "CO",
+		"latitude": 39.8256,
+		"longitude": -105.0526
+	},
+	{
+		"id": "store-012",
+		"name": "McDonald's - Thornton / Washington",
+		"address": "10330 Washington St",
+		"city": "Thornton",
+		"state": "CO",
+		"latitude": 39.8865,
+		"longitude": -104.9831
+	},
+	{
+		"id": "store-013",
+		"name": "McDonald's - Thornton / 104th",
+		"address": "3900 E 104th Ave",
+		"city": "Thornton",
+		"state": "CO",
+		"latitude": 39.8861,
+		"longitude": -104.9394
+	},
+	{
+		"id": "store-014",
+		"name": "McDonald's - Commerce City",
+		"address": "6101 Dahlia St",
+		"city": "Commerce City",
+		"state": "CO",
+		"latitude": 39.8132,
+		"longitude": -104.9278
+	},
+	{
+		"id": "store-015",
+		"name": "McDonald's - Aurora / Mississippi",
+		"address": "12255 E Mississippi Ave",
+		"city": "Aurora",
+		"state": "CO",
+		"latitude": 39.6918,
+		"longitude": -104.8353
+	},
+	{
+		"id": "store-016",
+		"name": "McDonald's - Aurora / Havana",
+		"address": "2605 S Havana St",
+		"city": "Aurora",
+		"state": "CO",
+		"latitude": 39.6536,
+		"longitude": -104.8622
+	},
+	{
+		"id": "store-017",
+		"name": "McDonald's - Aurora / E Colfax",
+		"address": "15150 E Colfax Ave",
+		"city": "Aurora",
+		"state": "CO",
+		"latitude": 39.7404,
+		"longitude": -104.8037
+	},
+	{
+		"id": "store-018",
+		"name": "McDonald's - Denver / Colorado Blvd",
+		"address": "1550 S Colorado Blvd",
+		"city": "Denver",
+		"state": "CO",
+		"latitude": 39.6869,
+		"longitude": -104.9408
+	},
+	{
+		"id": "store-019",
+		"name": "McDonald's - Glendale",
+		"address": "4301 E Virginia Ave",
+		"city": "Glendale",
+		"state": "CO",
+		"latitude": 39.7040,
+		"longitude": -104.9305
+	},
+	{
+		"id": "store-020",
+		"name": "McDonald's - Englewood / Broadway",
+		"address": "3245 S Broadway",
+		"city": "Englewood",
+		"state": "CO",
+		"latitude": 39.6551,
+		"longitude": -104.9876
+	},
+	{
+		"id": "store-021",
+		"name": "McDonald's - Littleton / Broadway",
+		"address": "7950 S Broadway",
+		"city": "Littleton",
+		"state": "CO",
+		"latitude": 39.5841,
+		"longitude": -104.9876
+	},
+	{
+		"id": "store-022",
+		"name": "McDonald's - Littleton / Lowell",
+		"address": "5815 S Lowell Blvd",
+		"city": "Littleton",
+		"state": "CO",
+		"latitude": 39.6229,
+		"longitude": -105.0356
+	},
+	{
+		"id": "store-023",
+		"name": "McDonald's - Highlands Ranch",
+		"address": "9499 S University Blvd",
+		"city": "Highlands Ranch",
+		"state": "CO",
+		"latitude": 39.5456,
+		"longitude": -104.9612
+	},
+	{
+		"id": "store-024",
+		"name": "McDonald's - Centennial",
+		"address": "7111 S Holly St",
+		"city": "Centennial",
+		"state": "CO",
+		"latitude": 39.5988,
+		"longitude": -104.9213
+	},
+	{
+		"id": "store-025",
+		"name": "McDonald's - Golden",
+		"address": "720 Heritage Rd",
+		"city": "Golden",
+		"state": "CO",
+		"latitude": 39.7475,
+		"longitude": -105.1961
+	}
+]

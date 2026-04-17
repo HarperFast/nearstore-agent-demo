@@ -1,0 +1,31 @@
+{
+	"name": "nearstore-agent",
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"agent:run": "npx -y @harperfast/agent@latest",
+		"agent:skills:update": "npx -y skills@latest add harperfast/skills --all --yes",
+		"start": "dotenv -- harper run .",
+		"dev": "dotenv -- harper dev .",
+		"lint": "eslint .",
+		"format": "prettier --write .",
+		"seed": "node scripts/seed.js",
+		"test": "node --test test/*.test.js",
+		"test:watch": "node --watch --test test/*.test.js",
+		"deploy": "dotenv -- npm run deploy:component",
+		"deploy:component": "harper deploy_component . restart=rolling replicated=true"
+	},
+	"devDependencies": {
+		"@eslint/js": "^10.0.1",
+		"@harperfast/schema-codegen": "^1.0.10",
+		"dotenv-cli": "^11.0.0",
+		"eslint": "^10.0.2",
+		"globals": "^17.4.0",
+		"prettier": "^3.8.1"
+	},
+	"dependencies": {
+		"@anthropic-ai/sdk": "^0.90.0",
+		"dotenv": "^17.4.2",
+		"h3-js": "^4.4.0"
+	}
+}

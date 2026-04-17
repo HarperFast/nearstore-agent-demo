@@ -1,0 +1,8 @@
+type Order @table @export {
+	id: ID @primaryKey
+	customerId: String @indexed
+	storeId: String
+	timestamp: String @indexed
+	total: Float
+	items: Any
+}

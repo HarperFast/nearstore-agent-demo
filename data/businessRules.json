@@ -1,0 +1,30 @@
+[
+	{
+		"key": "promo_cooldown_hours",
+		"enabled": true,
+		"kind": "hard",
+		"description": "Do not send another promo to the same customer within this many hours.",
+		"params": { "hours": 2 }
+	},
+	{
+		"key": "quiet_hours",
+		"enabled": false,
+		"kind": "hard",
+		"description": "Do not send promos during these local hours. Off by default; flip enabled to true to activate.",
+		"params": { "startLocalHour": 22, "endLocalHour": 7 }
+	},
+	{
+		"key": "lapsed_threshold_days",
+		"enabled": true,
+		"kind": "soft",
+		"description": "Number of days without orders to consider a customer 'lapsed'.",
+		"params": { "days": 90 }
+	},
+	{
+		"key": "loyalty_visit_threshold",
+		"enabled": true,
+		"kind": "soft",
+		"description": "Minimum visits in last 30 days to consider a customer 'loyal'.",
+		"params": { "visits": 10 }
+	}
+]

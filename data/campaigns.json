@@ -1,0 +1,67 @@
+[
+	{
+		"id": "camp-new-welcome",
+		"name": "New Customer Welcome",
+		"enabled": true,
+		"headline": "15% off your first order",
+		"messageTemplate": "Welcome to McDonald's! Tap for 15% off your first order at {{storeName}}.",
+		"targetPersona": "newcomer",
+		"minVisitsLast30Days": 0,
+		"requiresLapsedDays": 0,
+		"timeWindow": "any",
+		"offer": "15_percent_off_first_order",
+		"notes": "Only valid for customers with zero prior orders."
+	},
+	{
+		"id": "camp-weekend-family",
+		"name": "Weekend Family Bundle",
+		"enabled": true,
+		"headline": "Family Bundle — $24.99",
+		"messageTemplate": "Dinner time? Family Bundle at {{storeName}} — 2 Big Macs, 2 Happy Meals for $24.99.",
+		"targetPersona": "family-weekend",
+		"minVisitsLast30Days": 2,
+		"requiresLapsedDays": 0,
+		"timeWindow": "weekend_dinner",
+		"offer": "family_bundle_24_99",
+		"notes": "Weekends only, 16:00–20:00 local. Targets customers with avg order > $25."
+	},
+	{
+		"id": "camp-late-night-mcflurry",
+		"name": "Late-Night $1 McFlurry",
+		"enabled": true,
+		"headline": "$1 McFlurry after 10pm",
+		"messageTemplate": "Still up? $1 McFlurry at {{storeName}} until close.",
+		"targetPersona": "late-night",
+		"minVisitsLast30Days": 1,
+		"requiresLapsedDays": 0,
+		"timeWindow": "late_night",
+		"offer": "mcflurry_1_dollar",
+		"notes": "Valid 22:00–02:00 local."
+	},
+	{
+		"id": "camp-win-back",
+		"name": "Win-Back 20% Off",
+		"enabled": true,
+		"headline": "We miss you — 20% off",
+		"messageTemplate": "It's been a while! 20% off your next order at {{storeName}}.",
+		"targetPersona": "lapsed-heavy",
+		"minVisitsLast30Days": 0,
+		"requiresLapsedDays": 90,
+		"timeWindow": "any",
+		"offer": "20_percent_off_entire_order",
+		"notes": "For customers whose last order was 90+ days ago."
+	},
+	{
+		"id": "camp-loyalty-free-coffee",
+		"name": "Loyalty — Free Coffee",
+		"enabled": true,
+		"headline": "Free coffee on us",
+		"messageTemplate": "Your regular is on us this morning at {{storeName}}. Tap to redeem.",
+		"targetPersona": "coffee-regular",
+		"minVisitsLast30Days": 10,
+		"requiresLapsedDays": 0,
+		"timeWindow": "morning",
+		"offer": "free_premium_coffee",
+		"notes": "For customers with 10+ visits in the last 30 days. Morning hours 06:00–11:00."
+	}
+]
