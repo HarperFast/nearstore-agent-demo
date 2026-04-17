@@ -2,6 +2,7 @@
 	"name": "nearstore-agent",
 	"version": "0.0.0",
 	"type": "module",
+	"license": "Apache-2.0",
 	"scripts": {
 		"agent:run": "npx -y @harperfast/agent@latest",
 		"agent:skills:update": "npx -y skills@latest add harperfast/skills --all --yes",

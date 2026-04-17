@@ -205,3 +205,7 @@ docs for setting environment variables.
 Store addresses are real street addresses for Denver‑metro McDonald's; lat/lon
 and "store IDs" are demo approximations. This is a fictional app, not
 affiliated with McDonald's Corporation.
+
+## License
+
+[Apache License 2.0](./LICENSE) — © 2026 HarperDB, Inc.
