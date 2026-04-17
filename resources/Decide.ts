@@ -216,7 +216,10 @@ async function callAgent(context: any): Promise<DecisionInput> {
 			'ANTHROPIC_API_KEY is not set. Add it to .env and restart `npm run dev`.'
 		);
 	}
-	const client = new Anthropic({ apiKey });
+	// 30s timeout so a slow/hanging Anthropic response can't hold the request
+	// open indefinitely. Haiku typically responds in 2–4s; 30s is generous
+	// enough to survive cold starts and network hiccups during live demos.
+	const client = new Anthropic({ apiKey, timeout: 30_000 });
 
 	const systemPrompt =
 		'You are the promotion-decision brain for a fictional McDonald\'s mobile app. ' +
@@ -276,9 +279,6 @@ export class Decide extends Resource {
 	allowCreate() {
 		return true;
 	}
-	allowRead() {
-		return true;
-	}
 
 	async post(body: any) {
 		const started = Date.now();
@@ -292,6 +292,14 @@ export class Decide extends Resource {
 				error:
 					'Body requires { personaKey: string, lat: number, lon: number }',
 			};
+		}
+		if (lat < -90 || lat > 90 || lon < -180 || lon > 180) {
+			return {
+				error: 'lat must be in [-90, 90] and lon must be in [-180, 180]',
+			};
+		}
+		if (Number.isNaN(new Date(nowIso).getTime())) {
+			return { error: 'now must be a valid ISO 8601 timestamp' };
 		}
 
 		// 1. Proximity

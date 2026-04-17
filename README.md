@@ -190,6 +190,29 @@ npm run deploy
 The Anthropic key needs to be set on the cluster too — see the Harper Fabric
 docs for setting environment variables.
 
+### ⚠️ Before deploying to any public URL
+
+This demo is built for frictionless local exploration. A few things need to
+change before it's safe to run where anyone on the internet can reach it:
+
+1. **Change the Harper admin password.** Local dev uses the default
+   `HDB_ADMIN:password` (referenced in the curl examples above and in
+   `scripts/seed.js`). Harper Fabric forces you to set a password during
+   cluster creation — do not reuse the default.
+2. **Decide how to protect `/Decide`.** The endpoint is unauthenticated by
+   design so you can click‑and‑try. Every call to it triggers a billable
+   Claude API request. Before exposing it publicly, either (a) add an API
+   key or signed‑JWT check in `resources/Decide.ts`, or (b) set a monthly
+   spend cap on your key at
+   [console.anthropic.com/settings/limits](https://console.anthropic.com/settings/limits),
+   or both.
+3. **Consider swapping the model.** At scale, a self‑hosted open‑source
+   model (Llama or Mistral served by vLLM or Ollama) is cheaper, faster,
+   and keeps customer data on your infrastructure. Set `ANTHROPIC_MODEL`
+   in `.env` to point at any OpenAI‑compatible endpoint your team runs.
+4. **Restrict CORS.** Harper's default is open (`*`), which is fine for a
+   public demo and wrong for anything serving sensitive data.
+
 ## Credits
 
 - H3‑based spatial pattern: inspired by Kyle Bernhardy's
