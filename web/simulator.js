@@ -128,7 +128,7 @@ function renderResult(data, clientMs) {
 	const result = document.getElementById('result');
 	const action = data.action;
 
-	let banner = '';
+	let banner;
 	if (action === 'send_promo') {
 		banner = `<div class="action-banner send">✅ Send — ${escapeHtml(data.decision?.campaign_id || '')}</div>`;
 	} else if (action === 'hold') {

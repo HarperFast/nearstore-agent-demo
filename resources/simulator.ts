@@ -7,7 +7,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { type RequestTargetOrId, Resource } from 'harperdb';
+import { type RequestTargetOrId, Resource } from 'harper';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const HTML_PATH = path.join(__dirname, '..', 'web', 'index.html');

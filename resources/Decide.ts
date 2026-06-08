@@ -21,7 +21,7 @@ import {
 	type RequestTargetOrId,
 	Resource,
 	tables,
-} from 'harperdb';
+} from 'harper';
 
 import { findNearbyStores } from './Proximity.ts';
 

@@ -2,7 +2,7 @@
  * Personas — summary of seeded customers for the simulator dropdown.
  */
 
-import { Resource, tables } from 'harperdb';
+import { Resource, tables } from 'harper';
 
 export class Personas extends Resource {
 	allowRead() {

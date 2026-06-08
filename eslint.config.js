@@ -18,6 +18,15 @@ export default [
 		},
 	},
 	{
+		// web/ files run in the browser and use Leaflet (L) loaded via CDN <script>
+		files: ['web/**/*.js'],
+		languageOptions: {
+			globals: {
+				L: 'readonly',
+			},
+		},
+	},
+	{
 		ignores: ['node_modules/'],
 	},
 ];

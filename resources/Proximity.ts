@@ -11,7 +11,7 @@
  * that scales to millions of rows. Inspired by kylebernhardy/geolookup.
  */
 
-import { type RequestTargetOrId, Resource, tables } from 'harperdb';
+import { type RequestTargetOrId, Resource, tables } from 'harper';
 import { gridDisk, latLngToCell } from 'h3-js';
 
 export const H3_RES = 9;

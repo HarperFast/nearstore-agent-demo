@@ -2,7 +2,7 @@
  * Stores — lightweight listing for the simulator map.
  */
 
-import { Resource, tables } from 'harperdb';
+import { Resource, tables } from 'harper';
 
 export class Stores extends Resource {
 	allowRead() {
