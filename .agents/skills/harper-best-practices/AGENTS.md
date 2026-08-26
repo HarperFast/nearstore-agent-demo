@@ -47,7 +47,7 @@ Use this skill when you need to define new data structures or modify existing on
 #### How It Works
 
 1. **Create Dedicated Schema Files**: Prefer having a dedicated schema `.graphql` file for each table. Check the `config.yaml` file under `graphqlSchema.files` to see how it's configured. It typically accepts wildcards (e.g., `schemas/*.graphql`), but may be configured to point at a single file.
-2. **Use Directives**: All available directives for defining your schema are defined in `node_modules/harperdb/schema.graphql`. Common directives include `@table`, `@export`, `@primaryKey`, `@indexed`, and `@relationship`.
+2. **Use Directives**: All available directives for defining your schema are defined in `node_modules/harper/schema.graphql`. Common directives include `@table`, `@export`, `@primaryKey`, `@indexed`, and `@relationship`.
 3. **Define Relationships**: Link tables together using the `@relationship` directive.
 4. **Enable Automatic APIs**: If you add `@table @export` to a schema type, Harper automatically sets up REST and WebSocket APIs for basic CRUD operations against that table.
 5. **Consider Table Extensions**: If you are going to extend the table in your resources, then do not `@export` the table from the schema.
@@ -68,7 +68,7 @@ Harper uses GraphQL schemas to define database tables, relationships, and APIs. 
 
 #### Core Harper Directives
 
-Harper extends GraphQL with custom directives that define database behavior. These are typically defined in `node_modules/harperdb/schema.graphql`. If you don't have access to that file, here is a reference of the most important ones:
+Harper extends GraphQL with custom directives that define database behavior. These are typically defined in `node_modules/harper/schema.graphql`. If you don't have access to that file, here is a reference of the most important ones:
 
 ##### Table Definition
 - `@table`: Marks a GraphQL type as a Harper database table.
@@ -98,7 +98,7 @@ Create a file named `graphql.config.yml` in your project root with the following
 
 ```yaml
 schema:
-  - "node_modules/harperdb/schema.graphql"
+  - "node_modules/harper/schema.graphql"
   - "schema.graphql"
   - "schemas/*.graphql"
 ```
@@ -418,11 +418,11 @@ Add the following scripts and dependencies to your `package.json`:
 {
 	"scripts": {
 		"deploy": "dotenv -- npm run deploy:component",
-		"deploy:component": "harperdb deploy_component . restart=rolling replicated=true"
+		"deploy:component": "harper deploy_component . restart=rolling replicated=true"
 	},
 	"devDependencies": {
 		"dotenv-cli": "^11.0.0",
-		"harperdb": "^4.7.20"
+		"harper": "^5.2.1"
 	}
 }
 ```
@@ -434,7 +434,7 @@ The `deploy` script is separated from `deploy:component` to ensure environment v
 - `deploy`: Uses `dotenv-cli` to load environment variables (like `CLI_TARGET`, `CLI_TARGET_USERNAME`, and `CLI_TARGET_PASSWORD`) before executing the next command.
 - `deploy:component`: The actual command that performs the deployment.
 
-By using `dotenv -- npm run deploy:component`, the environment variables are correctly set in the shell session before `harperdb deploy_component` is called, allowing it to authenticate with your cluster.
+By using `dotenv -- npm run deploy:component`, the environment variables are correctly set in the shell session before `harper deploy_component` is called, allowing it to authenticate with your cluster.
 
 #### 2. Configure GitHub Actions
 
@@ -487,5 +487,5 @@ Two ways to serve web content from a Harper application.
 
 #### Methods
 
-1. **Static Serving**: Serve HTML, CSS, and JS files directly. If using the Vite plugin for development, ensure Harper is running (e.g., `harperdb run .`) to allow for Hot Module Replacement (HMR).
+1. **Static Serving**: Serve HTML, CSS, and JS files directly. If using the Vite plugin for development, ensure Harper is running (e.g., `harper run .`) to allow for Hot Module Replacement (HMR).
 2. **Dynamic Rendering**: Use custom resources to render content on the fly.
