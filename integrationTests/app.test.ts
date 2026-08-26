@@ -67,19 +67,24 @@ async function seedData(ctx: ContextWithHarper) {
 		h3Cell: latLngToCell(s.latitude, s.longitude, H3_RES),
 	}));
 
+	// Each record has a distinct primary key, so the writes are independent and
+	// Harper handles them concurrently — issue them in parallel rather than
+	// serialising 25+ round trips through the suite's `before` hook.
 	async function putAll(tableName: string, records: any[]) {
-		for (const r of records) {
-			const key = encodeURIComponent(r.id ?? r.key);
-			const res = await authFetch(ctx, `/${tableName}/${key}`, {
-				method: 'PUT',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify(r),
-			});
-			if (!res.ok) {
-				const text = await res.text();
-				throw new Error(`PUT /${tableName}/${key} → ${res.status} ${text}`);
-			}
-		}
+		await Promise.all(
+			records.map(async (r) => {
+				const key = encodeURIComponent(r.id ?? r.key);
+				const res = await authFetch(ctx, `/${tableName}/${key}`, {
+					method: 'PUT',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify(r),
+				});
+				if (!res.ok) {
+					const text = await res.text();
+					throw new Error(`PUT /${tableName}/${key} → ${res.status} ${text}`);
+				}
+			})
+		);
 	}
 
 	// Build minimal customers from personas (no orders needed for most tests)
