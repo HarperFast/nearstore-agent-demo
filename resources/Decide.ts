@@ -17,11 +17,7 @@ import { fileURLToPath } from 'node:url';
 
 import dotenv from 'dotenv';
 import Anthropic from '@anthropic-ai/sdk';
-import {
-	type RequestTargetOrId,
-	Resource,
-	tables,
-} from 'harper';
+import { type RequestTarget, Resource, tables } from 'harper';
 
 import { findNearbyStores } from './Proximity.ts';
 
@@ -282,12 +278,11 @@ async function callAgent(context: any): Promise<DecisionInput> {
 // ---- resource ----
 
 export class Decide extends Resource {
-	allowCreate() {
-		return true;
-	}
-
-	async post(body: any) {
+	// v5 dispatches REST verbs to static methods as (target, data, context); the
+	// request body arrives as a promise that has to be awaited before it is read.
+	static async post(_target: RequestTarget, data: any) {
 		const started = Date.now();
+		const body = await data;
 		const personaKey: string = body?.personaKey;
 		const lat: number = Number(body?.lat);
 		const lon: number = Number(body?.lon);

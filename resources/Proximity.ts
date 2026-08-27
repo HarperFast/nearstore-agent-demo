@@ -11,7 +11,7 @@
  * that scales to millions of rows. Inspired by kylebernhardy/geolookup.
  */
 
-import { type RequestTargetOrId, Resource, tables } from 'harper';
+import { type RequestTarget, Resource, tables } from 'harper';
 import { gridDisk, latLngToCell } from 'h3-js';
 
 export const H3_RES = 9;
@@ -111,16 +111,11 @@ export async function findNearbyStores(
 
 /** GET /Proximity?lat=39.75&lon=-104.99 */
 export class Proximity extends Resource {
-	allowRead() {
-		return true;
-	}
-
-	async get(target?: RequestTargetOrId) {
-		if (!target || typeof target === 'string') {
-			return { error: 'Provide ?lat=...&lon=... query parameters' };
-		}
-		const lat = parseFloat(target.get?.('lat') as string);
-		const lon = parseFloat(target.get?.('lon') as string);
+	static async get(target?: RequestTarget) {
+		// v5 parses the RequestTarget before dispatching static REST methods, so the
+		// query string is readable straight off it (RequestTarget extends URLSearchParams).
+		const lat = parseFloat(target?.get('lat') ?? '');
+		const lon = parseFloat(target?.get('lon') ?? '');
 		if (isNaN(lat) || isNaN(lon)) {
 			return { error: 'lat and lon are required numeric parameters' };
 		}

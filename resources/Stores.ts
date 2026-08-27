@@ -5,11 +5,7 @@
 import { Resource, tables } from 'harper';
 
 export class Stores extends Resource {
-	allowRead() {
-		return true;
-	}
-
-	async get() {
+	static async get() {
 		const stores: any[] = [];
 		for await (const store of (tables as any).Store.search({
 			select: [
