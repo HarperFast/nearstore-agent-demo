@@ -7,21 +7,20 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { type RequestTargetOrId, Resource } from 'harperdb';
+import { Resource } from 'harper';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const HTML_PATH = path.join(__dirname, '..', 'web', 'index.html');
 
 export class simulator extends Resource {
-	allowRead() {
-		return true;
-	}
-
-	async get(_target?: RequestTargetOrId) {
+	static async get() {
 		const html = await fs.readFile(HTML_PATH, 'utf8');
-		return new Response(html, {
+		// v5 turns any returned object carrying a `headers` property into the response
+		// envelope, so no Response global is needed here.
+		return {
 			status: 200,
 			headers: { 'Content-Type': 'text/html; charset=utf-8' },
-		});
+			body: html,
+		};
 	}
 }

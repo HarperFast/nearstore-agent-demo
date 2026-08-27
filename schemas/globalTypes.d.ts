@@ -3,10 +3,10 @@
  Manual changes will be lost!
  > harper dev .
  */
-import type { Table } from 'harperdb';
+import type { Table } from 'harper';
 import type { AgentAction, AgentAttempt, AgentComponent, AgentConversation, AgentCredential, AgentGoal, AgentKnowledge, AgentMemory, AgentTool, AgentUsage, BusinessRule, Campaign, Customer, HarperResource, Order, RSSMonitoring, Store, TestNote, WalmartStore, geofence_Store, geolookup_Cell, geolookup_DataLoadJob, geolookup_Location } from './types.ts';
 
-declare module 'harperdb' {
+declare module 'harper' {
 	export const tables: {
 		AgentActions: { new(...args: any[]): Table<AgentAction> };
 		AgentAttempts: { new(...args: any[]): Table<AgentAttempt> };

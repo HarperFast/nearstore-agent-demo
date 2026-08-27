@@ -17,11 +17,7 @@ import { fileURLToPath } from 'node:url';
 
 import dotenv from 'dotenv';
 import Anthropic from '@anthropic-ai/sdk';
-import {
-	type RequestTargetOrId,
-	Resource,
-	tables,
-} from 'harperdb';
+import { type RequestTarget, Resource, tables } from 'harper';
 
 import { findNearbyStores } from './Proximity.ts';
 
@@ -94,8 +90,14 @@ function summarizeOrders(orders: any[], nowIso: string) {
 	};
 	const itemCount: Record<string, number> = {};
 	for (const o of last90) {
-		const h = new Date(o.timestamp).getUTCHours(); // rough; UTC is fine for bucketing
-		const localH = (h + 18) % 24; // UTC→MDT (-6)
+		const localH = parseInt(
+			new Intl.DateTimeFormat('en-US', {
+				timeZone: DENVER_TZ,
+				hour: '2-digit',
+				hour12: false,
+			}).format(new Date(o.timestamp)),
+			10
+		);
 		if (localH < 6) hourBuckets['00-06']++;
 		else if (localH < 10) hourBuckets['06-10']++;
 		else if (localH < 14) hourBuckets['10-14']++;
@@ -276,12 +278,11 @@ async function callAgent(context: any): Promise<DecisionInput> {
 // ---- resource ----
 
 export class Decide extends Resource {
-	allowCreate() {
-		return true;
-	}
-
-	async post(body: any) {
+	// v5 dispatches REST verbs to static methods as (target, data, context); the
+	// request body arrives as a promise that has to be awaited before it is read.
+	static async post(_target: RequestTarget, data: any) {
 		const started = Date.now();
+		const body = await data;
 		const personaKey: string = body?.personaKey;
 		const lat: number = Number(body?.lat);
 		const lon: number = Number(body?.lon);
@@ -340,7 +341,7 @@ export class Decide extends Resource {
 			if (!r.enabled || r.kind !== 'hard') continue;
 			if (r.key === 'promo_cooldown_hours') {
 				const since = hoursBetween(customer.lastPromoAt, nowIso);
-				if (since !== null && since < (r.params?.hours ?? 0)) {
+				if (since !== null && since >= 0 && since < (r.params?.hours ?? 0)) {
 					return {
 						action: 'blocked_cooldown',
 						store: closest,

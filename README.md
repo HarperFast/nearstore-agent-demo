@@ -32,7 +32,7 @@ reverse-geocoding.
 
 ## Run it in three commands
 
-Requires Node 22+ and the Harper CLI installed globally (`npm install -g harperdb`).
+Requires Node 22+ and the Harper CLI installed globally (`npm install -g harper`).
 
 ```sh
 # 1. install deps and set your Anthropic key
@@ -231,4 +231,4 @@ affiliated with McDonald's Corporation.
 
 ## License
 
-[Apache License 2.0](./LICENSE) — © 2026 HarperDB, Inc.
+[Apache License 2.0](./LICENSE) — © 2026 Harper, Inc.

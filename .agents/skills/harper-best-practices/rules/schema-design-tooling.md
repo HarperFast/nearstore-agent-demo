@@ -9,7 +9,7 @@ Harper uses GraphQL schemas to define database tables, relationships, and APIs. 
 
 ## Core Harper Directives
 
-Harper extends GraphQL with custom directives that define database behavior. These are typically defined in `node_modules/harperdb/schema.graphql`. If you don't have access to that file, here is a reference of the most important ones:
+Harper extends GraphQL with custom directives that define database behavior. These are typically defined in `node_modules/harper/schema.graphql`. If you don't have access to that file, here is a reference of the most important ones:
 
 ### Table Definition
 - `@table`: Marks a GraphQL type as a Harper database table.
@@ -39,7 +39,7 @@ Create a file named `graphql.config.yml` in your project root with the following
 
 ```yaml
 schema:
-  - "node_modules/harperdb/schema.graphql"
+  - "node_modules/harper/schema.graphql"
   - "schema.graphql"
   - "schemas/*.graphql"
 ```
